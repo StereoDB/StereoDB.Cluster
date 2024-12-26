@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <OtherFlags>$(OtherFlags) --test:GraphBasedChecking --test:ParallelOptimization --test:ParallelIlxGen</OtherFlags>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="AssemblyInfo.fs" />
+        <Compile Include="Utils.fs" />
+        <Compile Include="Kafka.fs" />
+        <Compile Include="StereoDbNode.fs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Confluent.Kafka" Version="2.6.1" />
+      <PackageReference Include="FsToolkit.ErrorHandling.IcedTasks" Version="4.18.0" />
+      <PackageReference Include="Serilog" Version="4.2.0" />
+      <PackageReference Include="StereoDB" Version="0.4.1" />
+    </ItemGroup>
+
+</Project>
