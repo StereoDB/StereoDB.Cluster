@@ -6,11 +6,12 @@ on:
   pull_request:
     branches: [ "dev" ]
 
+
 jobs:
   build:
-
+    env:
+       PROJECT_NAME: 'StereoDB.Cluster'
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET
@@ -20,8 +21,8 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore StereoDB.sln
     - name: Build
-      run: dotnet build StereoDB.sln --no-restore
+      run: dotnet build $(PROJECT_NAME).sln --no-restore
     - name: Test
       run: | 
         docker-compose up -d && sleep 5
-        dotnet test tests/StereoDB.Cluster.Tests/StereoDB.Cluster.Tests.fsproj --configuration Release --verbosity normal
+        dotnet test tests/$(PROJECT_NAME).Tests/$(PROJECT_NAME).Tests.fsproj --configuration Release --verbosity normal
