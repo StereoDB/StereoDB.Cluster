@@ -6,11 +6,11 @@ on:
   pull_request:
     branches: [ "dev" ]
 
+env:
+  PROJECT_NAME: 'StereoDB.Cluster'
 
 jobs:
   build:
-    env:
-       PROJECT_NAME: 'StereoDB.Cluster'
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -19,7 +19,7 @@ jobs:
       with:
         dotnet-version: 8.x.x
     - name: Restore dependencies
-      run: dotnet restore StereoDB.sln
+      run: dotnet restore $(PROJECT_NAME).sln
     - name: Build
       run: dotnet build $(PROJECT_NAME).sln --no-restore
     - name: Test
