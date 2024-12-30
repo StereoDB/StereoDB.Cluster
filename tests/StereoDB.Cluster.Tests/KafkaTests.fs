@@ -12,7 +12,6 @@ open Swensen.Unquote
 open StereoDB.Cluster
 
 [<Fact>]
-[<Trait("CI", "disable")>]
 let ``JoinCluster should trigger sending heartbeat`` () = task {
 
     let settings = ClusterSettings.Default
