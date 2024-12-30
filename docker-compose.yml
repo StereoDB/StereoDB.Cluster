@@ -27,6 +27,11 @@ services:
       - redpanda-0:/var/lib/redpanda/data
     networks:
       - redpanda_network
+    healthcheck:
+        test: ["CMD", "curl", "-f", "http://localhost:9644/v1/status/ready"]
+        interval: 10s
+        timeout: 5s
+        retries: 5
     ports:
       - 18081:18081
       - 18082:18082
