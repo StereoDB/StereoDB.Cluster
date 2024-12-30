@@ -24,5 +24,5 @@ jobs:
       run: dotnet build $PROJECT_NAME.sln --no-restore
     - name: Test
       run: | 
-        docker-compose up -d && sleep 5
+        docker compose up -d && sleep 5
         dotnet test tests/$PROJECT_NAME.Tests/$PROJECT_NAME.Tests.fsproj --configuration Release --verbosity normal
