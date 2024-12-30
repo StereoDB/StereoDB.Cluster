@@ -28,7 +28,7 @@ services:
     networks:
       - redpanda_network
     healthcheck:
-        test: ["CMD", "curl", "-f", "http://localhost:9644/v1/status/ready"]
+        test: ["CMD", "curl", "-f", "http://redpanda-0:9644/v1/status/ready"]
         interval: 10s
         timeout: 5s
         retries: 5
