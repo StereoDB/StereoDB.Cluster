@@ -1,8 +1,5 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
-MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "StereoDB.Cluster", "src\StereoDB.Cluster\StereoDB.Cluster.fsproj", "{FC67C46F-551A-4F50-8ABE-BB072D0CC26E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E8EFDB55-9AA5-4389-9D5A-6A9BF643634C}"
@@ -28,9 +25,6 @@ Global
 		{FD00F5F4-488E-4C12-A11C-45A6F48E0091}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD00F5F4-488E-4C12-A11C-45A6F48E0091}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD00F5F4-488E-4C12-A11C-45A6F48E0091}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FD00F5F4-488E-4C12-A11C-45A6F48E0091} = {E8EFDB55-9AA5-4389-9D5A-6A9BF643634C}
