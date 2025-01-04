@@ -20,5 +20,3 @@ module KafkaFixtures =
             member _.Dispose (): unit = 
                 kafkaConsumer.Close()
                 kafkaConsumer.Dispose()
-
-
