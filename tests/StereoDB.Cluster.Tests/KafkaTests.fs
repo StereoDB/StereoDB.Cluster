@@ -11,13 +11,16 @@ open Swensen.Unquote
 open StereoDB.Cluster
 open Fixtures.KafkaFixtures
 
-type HeartbeatTests(kafkaConsumerFixture: KafkaConsumerFixture) =
-    interface IClassFixture<KafkaConsumerFixture>
+type HeartbeatTests() =
+    let settings = ClusterSettings.Default
+    let kafkaConsumerFixture = new KafkaConsumerFixture(settings.KafkaSettings)
+
+    interface IDisposable with
+        member _.Dispose() =
+            (kafkaConsumerFixture :> IDisposable).Dispose()
 
     [<Fact>]
     member _.``JoinCluster should trigger sending heartbeat`` () = task {
-        let settings = ClusterSettings.Default
-        let kafkaSettings = settings.KafkaSettings
         use node = StereoDbNode.Create(settings)
         node.JoinCluster()
 
@@ -29,7 +32,7 @@ type HeartbeatTests(kafkaConsumerFixture: KafkaConsumerFixture) =
 
         task {
             let heartbeatTopic =
-                Kafka.createHeartbeatTopicName kafkaSettings.KafkaHeartbeatTopicPrefix settings.ClusterId
+                Kafka.createHeartbeatTopicName settings.KafkaSettings.KafkaHeartbeatTopicPrefix settings.ClusterId
             
             kafkaConsumerFixture.Consumer.Subscribe heartbeatTopic
         
